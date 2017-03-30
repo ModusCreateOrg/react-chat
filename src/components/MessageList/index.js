@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Message from '../Message';
 import './style.css';
 
 export default class MessageList extends Component {
@@ -22,12 +23,7 @@ export default class MessageList extends Component {
     return (
       <ul className="message-list">
         { 
-          ids.map(id => (
-            <li key={id}>
-              <span>{messages[id].user}:</span>
-              <span>{messages[id].text}</span>
-            </li>
-          ))
+          ids.map(id => <Message key={id} { ...messages[id] } />)
         }
       </ul>
     );
