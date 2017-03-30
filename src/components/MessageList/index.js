@@ -3,16 +3,32 @@ import './style.css';
 
 export default class MessageList extends Component {
   state = {
-    messages: [
-      'Hello John',
-      'Hello Judy',
-    ]
+    messages: {
+      1: {
+        user: 'Judy',
+        text: 'Hello John',
+      },
+      2: {
+        user: 'John',
+        text: 'Yo Judy',
+      }
+    },
   };
 
   render() {
+    const { messages } = this.state;
+    const ids = Object.keys(messages);
+
     return (
       <ul className="message-list">
-        { this.state.messages.map((msg, idx) => <li key={idx}>{msg}</li>) }
+        { 
+          ids.map(id => (
+            <li key={id}>
+              <span>{messages[id].user}:</span>
+              <span>{messages[id].text}</span>
+            </li>
+          ))
+        }
       </ul>
     );
   }
