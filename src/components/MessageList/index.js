@@ -2,11 +2,17 @@ import React, { Component } from 'react';
 import './style.css';
 
 export default class MessageList extends Component {
+  state = {
+    messages: [
+      'Hello John',
+      'Hello Judy',
+    ]
+  };
+
   render() {
     return (
       <ul className="message-list">
-        <li>Hello John</li>
-        <li>Hi Judy</li>
+        { this.state.messages.map((msg, idx) => <li key={idx}>{msg}</li>) }
       </ul>
     );
   }
