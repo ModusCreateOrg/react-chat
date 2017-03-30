@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
+import MessageList from './components/MessageList';
 import './App.css';
 
 class App extends Component {
@@ -11,10 +12,7 @@ class App extends Component {
           <h2>React Chat</h2>
         </div>
         <main>
-          <ul>
-            <li>Hello John</li>
-            <li>Hi Judy</li>
-          </ul>
+          <MessageList />
           <div>
             <input name="user" />
             <input name="message" />
